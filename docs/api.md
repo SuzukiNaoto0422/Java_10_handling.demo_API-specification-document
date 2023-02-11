@@ -20,7 +20,7 @@ FORMAT: 1A
     + Body
       name successfully created
 
-+ Response 404
++ Response 400
     + Body
       {
         "message":"Name must not be empty or null or alphabet."
