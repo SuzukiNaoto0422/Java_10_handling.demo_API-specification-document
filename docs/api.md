@@ -74,7 +74,7 @@ idに指定したユーザーの情報を削除。
 
 ## PATCH /users/{id}
 
-idに指定したユーザーの情報を更新。
+idに指定したユーザーの名前(name)を更新。
 
 + Parameters
 
