@@ -3,28 +3,6 @@ FORMAT: 1A
 
 # Group Users
 
-## POST /users
-ユーザーを登録。
-以下のパラメータをJSON形式で送信。
-
-+ name (string, required) - ユーザー名。アルファベットでの入力のみ可。
-+ ※idはオートインクリメントされ自動で入力。
-
-+ Request (application/json)
-
-        {
-          "name": "suzuki"
-        }
-
-+ Response 200 (text/plain;charset=UTF-8)
-    + Body
-      name successfully created
-
-+ Response 400
-    + Body
-      {
-        "message":"Name must not be empty or null or alphabet."
-      }
 
 ## GET /users/{id}
 
@@ -44,6 +22,37 @@ idに指定したユーザーの情報を取得。
   {
   "message": "resource not found"
   }
+
+
+## POST /users
+ユーザーを登録。
+以下のパラメータをJSON形式で送信。
+
++ name (string, required) - ユーザー名。アルファベットでの入力のみ可。
++ age (int) - 数字での入力が可能。
++ ※idはオートインクリメントされ自動で入力。
+
++ Request (application/json)
+
+        {
+          "name": "suzuki"
+        }
+
++ Response 200 (text/plain;charset=UTF-8)
+    + Body
+      name successfully created
+
++ Response 400
+    + Body
+      nameがnullまたは未入力またはアルファベットで始まらないとき
+      {
+        "message":"Name must not be empty or null or alphabet."
+      }
+
+      ageが０未満での入力の時
+      {
+      "message":"Age must not be positive."
+      }
 
 ## DELETE /users/{id}
 
