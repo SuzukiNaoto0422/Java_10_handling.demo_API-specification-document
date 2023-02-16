@@ -15,7 +15,8 @@ idに指定したユーザーの情報を取得。
 + Response 200 (application/json)
   {
   "id": 1,
-  "name": "suzuki"
+  "name": "suzuki",
+  "age":30
   }
 
 + Response 404 (application/json)
@@ -40,7 +41,7 @@ idに指定したユーザーの情報を取得。
 
 + Response 200 (text/plain;charset=UTF-8)
     + Body
-      name successfully created
+      user successfully created
 
 + Response 400
     + Body
@@ -49,9 +50,9 @@ idに指定したユーザーの情報を取得。
         "message":"Name must not be empty or null or alphabet."
       }
 
-      ageが０未満での入力の時
+      ageが0~100の範囲外での値で入力されたとき
       {
-      "message":"Age must not be positive."
+      "message":"Age must be between 0 and 100"
       }
 
 ## DELETE /users/{id}
